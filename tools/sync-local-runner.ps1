@@ -39,4 +39,10 @@ Copy-Item `
     -Destination (Join-Path $repoRoot "interface.json") `
     -Force
 
+$interfacePath = Join-Path $repoRoot "interface.json"
+$interface = Get-Content -LiteralPath $interfacePath -Raw | ConvertFrom-Json
+$interface.agent.child_exec = "./python/python.exe"
+$interface.agent.child_args = @("-u", "./agent/main.py")
+$interface | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath $interfacePath -Encoding UTF8
+
 Write-Host "Synced fork assets to local runnable workspace: $repoRoot"
