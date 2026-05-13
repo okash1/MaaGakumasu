@@ -444,6 +444,21 @@ deps
 build
 install
 
+# Local runnable workspace
+/resource/
+/tasks/
+/lang/
+/data/
+/python/
+/libs/
+/runtimes/
+/plugins/
+/temp/
+/interface.json
+/appsettings.json
+/MFAAvalonia.deps.json
+/MFAAvalonia.runtimeconfig.json
+
 # Tools
 tools/ImageCropper/**/*.png
 .nicegui/
