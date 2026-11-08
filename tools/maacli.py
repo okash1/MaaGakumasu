@@ -41,6 +41,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 COLOR_TAG = re.compile(r"\[/?color(?::[^\]]*)?\]")
+ANSI = re.compile(r"\[[0-9;]*m")
 
 
 # --------------------------------------------------------------------------- helpers
@@ -462,7 +463,7 @@ def cmd_run(args, runtime: Path) -> int:
 
             def pump():
                 for line in agent_proc.stdout:  # type: ignore[union-attr]
-                    line = line.rstrip()
+                    line = ANSI.sub("", line).rstrip()
                     if line:
                         log_line(fp, f"[agent] {line}")
 
