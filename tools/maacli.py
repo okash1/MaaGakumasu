@@ -41,7 +41,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 COLOR_TAG = re.compile(r"\[/?color(?::[^\]]*)?\]")
-ANSI = re.compile(r"\[[0-9;]*m")
+ANSI = re.compile(r"\x1b\[[0-9;]*m")
 
 
 # --------------------------------------------------------------------------- helpers
