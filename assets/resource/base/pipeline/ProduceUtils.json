@@ -171,9 +171,9 @@
       "param": {
         "roi": [
           0,
-          1080,
+          600,
           720,
-          200
+          680
         ],
         "template": [
           "produce/yes.png",
