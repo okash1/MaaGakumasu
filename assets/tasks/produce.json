@@ -481,7 +481,7 @@
             "ProduceChooseDifficulty": {
               "next": [
                 "ProduceLackAP",
-                "ProduceChooseIdolFlag"
+                "ProduceChooseIdolFilterOpen"
               ]
             }
           }
@@ -658,79 +658,274 @@
           "name": "花海咲季",
           "option": [
             "花海咲季卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    275,
+                    197,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "月村手毬",
           "option": [
             "月村手毬卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    385,
+                    197,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "藤田琴音",
           "option": [
             "藤田ことね卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    492,
+                    197,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "有村麻央",
           "option": [
             "有村麻央卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    600,
+                    197,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "葛城リーリヤ",
           "option": [
             "葛城リーリヤ卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    385,
+                    305,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "倉本千奈",
           "option": [
             "倉本千奈卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    492,
+                    305,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "紫云清夏",
           "option": [
             "紫雲清夏卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    600,
+                    305,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "篠泽广",
           "option": [
             "篠澤広卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    275,
+                    412,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "姫崎莉波",
           "option": [
             "姫崎莉波卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    275,
+                    305,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "花海佑芽",
           "option": [
             "花海佑芽卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    385,
+                    412,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "秦谷美铃",
           "option": [
             "秦谷美鈴卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    492,
+                    412,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "十王星南",
           "option": [
             "十王星南卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    600,
+                    412,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         },
         {
           "name": "雨夜燕",
           "option": [
             "雨夜燕卡片"
-          ]
+          ],
+          "pipeline_override": {
+            "ProduceChooseIdolFilterPick": {
+              "action": {
+                "type": "Click",
+                "param": {
+                  "target": [
+                    275,
+                    517,
+                    70,
+                    70
+                  ]
+                }
+              }
+            }
+          }
         }
       ],
       "label": "$培育偶像"

@@ -399,6 +399,66 @@
             "ProduceChooseIdolFirst"
         ]
     },
+    "ProduceChooseIdolFilterOpen": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "produce/choose_idol.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    235,
+                    722,
+                    70,
+                    52
+                ]
+            }
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "ProduceChooseIdolFilterPick"
+        ]
+    },
+    "ProduceChooseIdolFilterPick": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    296,
+                    620,
+                    344,
+                    70
+                ],
+                "expected": [
+                    "ALL"
+                ],
+                "replace": []
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    432,
+                    618,
+                    70,
+                    70
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Action.Succeeded": "[color:DeepSkyBlue]已切换偶像筛选[/color]"
+        },
+        "next": [
+            "ProduceChooseIdolFlag"
+        ]
+    },
     "ProduceChooseIdolFirst": {
         "recognition": {
             "type": "TemplateMatch",
@@ -502,7 +562,8 @@
                 ]
             }
         },
-        "post_wait_freezes": 200
+        "post_wait_freezes": 200,
+        "max_hit": 80
     },
     "ProduceChooseSupport": {
         "recognition": {
