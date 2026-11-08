@@ -405,8 +405,8 @@
     },
     "post_wait_freezes": 200,
     "next": [
-      "ChallengeBack",
-      "[JumpBack]CloseButton"
+      "[JumpBack]CloseButton",
+      "ChallengeBack"
     ]
   },
   "ChallengeBack": {
@@ -429,7 +429,8 @@
     },
     "post_wait_freezes": 200,
     "next": [
-      "ChallengeRestart"
+      "ChallengeRestart",
+      "[JumpBack]CloseButton"
     ]
   },
   "ChallengeRestart": {

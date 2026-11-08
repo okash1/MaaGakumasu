@@ -63,6 +63,7 @@
     "next": [
       "SocietyDonationCommit",
       "SocietyCommitAlready",
+      "SocietyNoRequest",
       "[JumpBack]CloseButton"
     ]
   },
@@ -196,6 +197,34 @@
     },
     "focus": {
       "Node.Recognition.Succeeded": "[color:DeepSkyBlue]社团捐赠物品已完成[/color]"
+    },
+    "next": [
+      "SocietyRequest",
+      "BackHome"
+    ]
+  },
+  "SocietyNoRequest": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": [
+          26,
+          750,
+          666,
+          250
+        ],
+        "expected": [
+          "リクエストはありません"
+        ],
+        "replace": []
+      }
+    },
+    "action": {
+      "type": "DoNothing",
+      "param": {}
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "[color:DeepSkyBlue]社团暂无捐赠请求，跳过捐赠[/color]"
     },
     "next": [
       "SocietyRequest",
