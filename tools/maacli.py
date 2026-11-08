@@ -218,11 +218,43 @@ def build_jobs(iface: dict, task_names: list[str], preset_name: Optional[str], o
     return jobs
 
 
-# --------------------------------------------------------------------------- commands
-def cmd_devices(args, runtime: Path) -> int:
+MUMU_ADB = os.environ.get("MAA_ADB", r"Z:\Program Files\Netease\MuMuPlayer\nx_main\adb.exe")
+MUMU_PATH = os.environ.get("MAA_MUMU_PATH", r"Z:\Program Files\Netease\MuMuPlayer")
+MUMU_ADDRESS = os.environ.get("MAA_MUMU_ADDRESS", "127.0.0.1:16384")
+
+
+def _mumu_device(adb_path, address, input_methods=18446744073709551615):
+    from maa.toolkit import AdbDevice
+
+    return AdbDevice(
+        name=f"MuMuPlayer({address})",
+        adb_path=Path(adb_path),
+        address=address,
+        screencap_methods=64,  # EmulatorExtras
+        input_methods=input_methods,
+        config={"extras": {"mumu": {"enable": True, "index": 0, "path": MUMU_PATH.replace("\\", "/")}}},
+    )
+
+
+def find_devices(address: Optional[str] = None):
+    """Toolkit の自動検出 -> adb パス指定の検出 -> MuMu 既定値 の順で探す。
+    MuMu のプレイヤーウィンドウを閉じて VM だけ動いていると自動検出が空になる。"""
     from maa.toolkit import Toolkit
 
-    devs = Toolkit.find_adb_devices()
+    devs = list(Toolkit.find_adb_devices() or [])
+    if not devs and Path(MUMU_ADB).exists():
+        found = list(Toolkit.find_adb_devices(MUMU_ADB) or [])
+        devs = [_mumu_device(d.adb_path, d.address, d.input_methods) for d in found]
+    if not devs and Path(MUMU_ADB).exists():
+        devs = [_mumu_device(MUMU_ADB, MUMU_ADDRESS)]
+    if address:
+        devs = [d for d in devs if d.address == address]
+    return devs
+
+
+# --------------------------------------------------------------------------- commands
+def cmd_devices(args, runtime: Path) -> int:
+    devs = find_devices()
     if not devs:
         print("no ADB devices found (is the emulator running?)")
         return 1
@@ -341,9 +373,7 @@ def cmd_logs(args, runtime: Path) -> int:
 
 
 def cmd_screenshot(args, runtime: Path) -> int:
-    from maa.toolkit import Toolkit
-
-    devs = Toolkit.find_adb_devices()
+    devs = find_devices()
     if not devs:
         print("no device")
         return 1
@@ -408,9 +438,7 @@ def cmd_run(args, runtime: Path) -> int:
     failed: list[str] = []
     try:
         # ---- controller
-        devs = Toolkit.find_adb_devices()
-        if args.device:
-            devs = [d for d in devs if d.address == args.device]
+        devs = find_devices(args.device)
         if not devs:
             log("ERROR: no ADB device found" + (f" matching {args.device}" if args.device else ""))
             return 2
